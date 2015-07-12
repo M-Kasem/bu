@@ -10,7 +10,9 @@
     <div ng-controller="UserCtrl">
         <h1>Current Names:</h1>
         <div ng-repeat="n in names">
-            <h3>{{ n }}</h3>
+            <h3 ng-click="toggleName($index)" ng-show="toggles[$index]">{{ n }}</h3>
+            <input ng-model="n" value="{{n}}" ng-hide="toggles[$index]" />
+            <button ng-click="updateName($index, n)" ng-hide="toggles[$index]">Update</button>
         </div>
         <div>
             New name: <input ng-model="name" />
